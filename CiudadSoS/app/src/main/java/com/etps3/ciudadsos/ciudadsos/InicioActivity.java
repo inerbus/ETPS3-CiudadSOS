@@ -4,13 +4,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+<<<<<<< HEAD
+import android.widget.ImageView;
 
 public class InicioActivity extends AppCompatActivity {
 
+    ImageView phone;
+=======
+
+public class InicioActivity extends AppCompatActivity {
+
+>>>>>>> master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+<<<<<<< HEAD
+        phone=(ImageView)findViewById(R.id.imagePhone);
+        phone.setImageResource(R.drawable.microphone);
+=======
+>>>>>>> master
     }
 
     @Override
