@@ -9,4 +9,10 @@
         <item>Bomberos</item>
         <item>Comandos de Salvamento</item>
     </string-array>
+    <string-array name="colors_fond">
+        <item>ef8889</item>
+        <item>a24d86</item>
+        <item>69c7b5></item>
+    </string-array>
+
 </resources>

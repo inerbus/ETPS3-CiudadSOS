@@ -21,51 +21,11 @@ import java.util.Locale;
 
 public class InicioActivity extends AppCompatActivity {
 
-
-    private final int REQ_CODE_SPEECH_INPUT = 100;
-    private ImageButton btnSpeak;
-    private TextView mensaje ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
-        getSupportActionBar().hide();
-        mensaje=(TextView)findViewById(R.id.txtmensaje);
-        btnSpeak=(ImageButton)findViewById(R.id.speakButton);
-         btnSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                promptSpeechInput();
-            }
-        });
 
-    }
-    private void promptSpeechInput()
-    {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-       intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Voice recognition Demo...");
-        try {
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-        } catch (ActivityNotFoundException a) {
-            Toast.makeText(getApplicationContext(),
-                    getString(R.string.speech_not_supported),
-                    Toast.LENGTH_SHORT).show();
-        }
-    }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1234 && resultCode==RESULT_OK){
-            Toast.makeText(this, "probando el speak xD", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
