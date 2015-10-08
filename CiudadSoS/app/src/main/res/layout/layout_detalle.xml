@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/Tabla"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1" >
+        <TableRow
+            android:id="@+id/Cabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:id="@+id/imageView2"
+                android:src="@drawable/cross1" />
+            <LinearLayout
+                android:layout_row="0"
+                android:layout_column="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:text="Nombre de la Entidad"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:text="Telefono"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_columnSpan="2"
+                    android:text="Direccion"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_columnSpan="2"
+                    android:text="Email"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </TableRow>
+        <TableRow
+            android:id="@+id/Mapa"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+            <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/FrgListado"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.etps3.ciudadsos.ciudadsos.MapsActivity"
+                tools:layout="@layout/activity_maps"
+                android:layout_alignParentBottom="true">
+            </fragment>
+            -->
+            <!--<com.google.android.gms.maps.MapView
+                android:id="@+id/mapview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:apiKey="AIzaSyAu3EYatjEqp3Vb_qiB9LL8vmlFREeIsrY"
+                android:clickable="true"
+                />-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView3"
+                android:src="@drawable/googlemaps8"
+                android:layout_span="2" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

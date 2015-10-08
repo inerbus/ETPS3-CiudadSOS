@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InicioActivity"
+    >
+    <item android:id="@+id/inicio" android:icon="@drawable/iconinicio" app:showAsAction="ifRoom|withText" android:title="@string/menu_inicio"/>
+    <!--<item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/inicio" android:icon="@drawable/iconinicio" app:showAsAction="ifRoom|withText" android:title="@string/menu_inicio"/>
+    <item android:id="@+id/emergencia" android:icon="@drawable/iconmenuemer" app:showAsAction="ifRoom|withText"  android:title="@string/menu_emergencia"/>
+    <item android:id="@+id/entidades" android:icon="@drawable/iconmenuagency" app:showAsAction="ifRoom|withText"  android:title="@string/menu_entidades"/>
+    -->
+</menu>
