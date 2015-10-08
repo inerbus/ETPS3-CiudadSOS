@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="entidadesSoS">
-        <item>Hospitales</item>
-        <item>Policia</item>
-        <item>Cruz Roja</item>
-        <item>Cruz Verde</item>
-        <item>Protección Civil</item>
-        <item>Bomberos</item>
-        <item>Comandos de Salvamento</item>
+        <item>HOSPITALES</item>
+        <item>POLICIA</item>
+        <item>CRUZ ROJA</item>
+        <item>CRUZ VERDE</item>
+        <item>PROTECCION CIVIL</item>
+        <item>BOMBEROS</item>
+        <item>COMANDOS DE SALVAMENTO</item>
     </string-array>
 </resources>

@@ -1,5 +1,6 @@
 package com.etps3.ciudadsos.fragments;
 
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,16 +39,16 @@ public class ListadoFragment extends Fragment {
      */
     public ArrayList<Entidad> getListEntidades(){
 
-        ArrayList<Entidad> lst= new ArrayList<Entidad>();
+        ArrayList<Entidad> lst= new ArrayList<>();
 
         String[] entidades= rootView.getContext().getResources().getStringArray(R.array.entidadesSoS);
         lst.add(new Entidad(entidades[0], R.drawable.hospital2));
-        lst.add(new Entidad(entidades[1], R.drawable.pnc));
-        lst.add(new Entidad(entidades[2], R.drawable.cruzroja));
+        lst.add(new Entidad(entidades[1], R.drawable.police));
+        lst.add(new Entidad(entidades[2], R.drawable.cross2));
         lst.add(new Entidad(entidades[3], R.drawable.cross2));
         lst.add(new Entidad(entidades[4], R.drawable.proteccioncivil));
         lst.add(new Entidad(entidades[5], R.drawable.fireman));
-        lst.add(new Entidad(entidades[6], R.drawable.comandossalvamentos));
+        lst.add(new Entidad(entidades[6], R.drawable.proteccioncivil));
 
         return lst;
 

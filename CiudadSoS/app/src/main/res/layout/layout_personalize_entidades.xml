@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:id="@+id/layoutcolor">
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="67dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
             android:id="@+id/imageView"
             android:contentDescription=""
-            android:src="@drawable/pnc"
-            android:layout_gravity="center_vertical" />
+            android:src="@drawable/police"
+            android:layout_gravity="center_horizontal" />
 
         <TextView
-            android:layout_width="242dp"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Nombre de Entida"
             android:id="@+id/textView"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_gravity="center_vertical" />
-
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 </LinearLayout>
