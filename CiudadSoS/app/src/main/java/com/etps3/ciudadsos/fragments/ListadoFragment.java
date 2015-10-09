@@ -1,6 +1,8 @@
 package com.etps3.ciudadsos.fragments;
 
 import android.graphics.Color;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;

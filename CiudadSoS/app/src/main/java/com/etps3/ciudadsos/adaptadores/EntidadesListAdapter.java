@@ -1,11 +1,13 @@
 package com.etps3.ciudadsos.adaptadores;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.content.*;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.etps3.ciudadsos.beans.Entidad;
@@ -44,6 +46,30 @@ public class EntidadesListAdapter extends ArrayAdapter {
 
         TextView tx =(TextView) item.findViewById(R.id.textView);
         tx.setText(datos.get(position).getNombre());
+        LinearLayout ly=(LinearLayout) item.findViewById(R.id.layoutcolor);
+        switch (position){
+            case 0:
+                ly.setBackgroundColor(Color.parseColor("#DE09D4A9"));
+                break;
+            case 1:
+                ly.setBackgroundColor(Color.parseColor("#FFFFAD7E"));
+                break;
+            case 2:
+                ly.setBackgroundColor(Color.parseColor("#bbd6ff"));
+                break;
+            case 3:
+                ly.setBackgroundColor(Color.parseColor("#FFFF4BBB"));
+                break;
+            case 4:
+                ly.setBackgroundColor(Color.parseColor("#DED49800"));
+                break;
+            case 5:
+                ly.setBackgroundColor(Color.parseColor("#DED40092"));
+                break;
+            case 6:
+                ly.setBackgroundColor(Color.parseColor("#DE87D853"));
+                break;
+        }
         // Devolvemos la vista para que se muestre en el ListView.
         return item;
     }

@@ -1,6 +1,7 @@
 package com.etps3.ciudadsos.beans;
 
 import android.graphics.Color;
+import android.provider.CalendarContract;
 
 /**
  * Created by martin on 09-25-15.
@@ -8,21 +9,15 @@ import android.graphics.Color;
 public class Entidad {
     private String nombre;
     private int drawableImageID;
-    private Color color;
+
 
     public Entidad(String nombre, int drawableImageID) {
         this.nombre = nombre;
         this.drawableImageID = drawableImageID;
-        this.color=color;
     }
 
-    public Color getColor() {
-        return color;
-    }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
+
     public String getNombre() {
 
         return nombre;
