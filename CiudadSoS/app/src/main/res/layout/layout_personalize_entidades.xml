@@ -7,11 +7,11 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="133dp"
         android:id="@+id/layoutcolor">
         <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:id="@+id/imageView"
@@ -28,32 +28,9 @@
             android:id="@+id/textView"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:paddingBottom="5dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:background="#8C000000"
-            android:visibility="visible">
-
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ratingBar"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:progressBackgroundTint="#ffffff"
-                android:progressTint="#60ff00"
-                android:progressBackgroundTintMode="src_over"
-                android:secondaryProgressTint="#57ff00"
-                android:theme="@style/TextAppearance.AppCompat.Body1"
-                android:layout_alignWithParentIfMissing="false"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentLeft="false" />
-        </RelativeLayout>
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 </LinearLayout>
