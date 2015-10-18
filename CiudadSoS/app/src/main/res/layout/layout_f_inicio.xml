@@ -14,11 +14,11 @@
         android:layout_gravity="center_horizontal" />
 
     <TextView
-        android:layout_width="269dp"
+        android:layout_width="324dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Si tiene una emergencia diga el nombre de la entidad que desea..."
+        android:text="Si tiene una emergencia presione el boton y diga el nombre de la entidad de socorro"
         android:id="@+id/textView2"
         android:layout_below="@+id/imagePhone"
         android:layout_centerHorizontal="true"
