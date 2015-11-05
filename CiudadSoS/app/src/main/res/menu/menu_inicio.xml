@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".InicioActivity"
     >
-    <item android:id="@+id/inicio" android:icon="@drawable/iconinicio" app:showAsAction="ifRoom|withText" android:title="@string/menu_inicio"/>
+    <item android:id="@+id/inicio" android:icon="@drawable/common_full_open_on_phone" app:showAsAction="ifRoom|withText" />
     <!--<item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
 

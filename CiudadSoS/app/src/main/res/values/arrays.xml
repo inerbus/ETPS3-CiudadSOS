@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="entidadesSoS">
-        <item>HOSPITALES</item>
-        <item>POLICIA</item>
-        <item>CRUZ ROJA</item>
-        <item>CRUZ VERDE</item>
-        <item>PROTECCION CIVIL</item>
-        <item>BOMBEROS</item>
-        <item>COMANDOS DE SALVAMENTO</item>
+        <item>{"id":1, "nombre":\"Hospitales\",            "descripcion":\"12345\", "url_imagen": \"not\"}</item>
+        <item>{"id":2, "nombre":\"Policia\",               "descripcion":\"12345\", "url_imagen": \"not\"}</item>
+        <item>{"id":3, "nombre":\"Cruz Roja\",             "descripcion":\"12345\", "url_imagen": \"not\"}</item>
+        <item>{"id":5, "nombre":\"Proteccion Civil\",      "descripcion":\"12345\", "url_imagen": \"not\"}</item>
+        <item>{"id":6, "nombre":\"Bomberos\",              "descripcion":\"12345\", "url_imagen": \"not\"}</item>
+        <item>{"id":7, "nombre":\"Comandos De Salvamento\","descripcion":\"12345\", "url_imagen": \"not\"}</item>
+    </string-array>
+    <string-array name="sucursales">
+        <item>{ "nombre":\"Roma\","direccion":\"Calle el progreso, Colonia Roma, No 23\", "coordenadas": \"3,4\", "telefono":\"50277408463\"}</item>
+        <item>{ "nombre":\"Apopa\","direccion":\"Urb valle del sol, pj laicos, No 35\", "coordenadas": \"3,4\", "telefono":\"50277408462\"}</item>
+        <item>{ "nombre":\"Quezaltepeque\","direccion":\"Urb. Las Palmeras Pol L No 34\", "coordenadas": \"3,4\", "telefono":\"50273408463\"}</item>
+        <item>{ "nombre":\"Escalon\","direccion":\"Direccion desconocida\", "coordenadas": \"3,4\", "telefono":\"50277408465\"}</item>
+        <item>{ "nombre":\"Santa Tecla\","direccion":\"12345\", "coordenadas": \"3,4\", "telefono":\"50277478463\"}</item>
+        <item>{ "nombre":\"Ilopango\","direccion":\"12345\", "coordenadas": \"3,4\", "telefono":\"50277498463\"}</item>
     </string-array>
 </resources>

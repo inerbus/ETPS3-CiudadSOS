@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.google.android.gms.maps.MapView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mapView"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:apiKey="AIzaSyAu3EYatjEqp3Vb_qiB9LL8vmlFREeIsrY"/>
-    <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" >
+
+    <fragment
+        android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" android:id="@+id/map"
-        tools:context="com.etps3.ciudadsos.ciudadsos.MapsActivity"
-        android:name="com.google.android.gms.maps.SupportMapFragment" />
-        -->
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+</RelativeLayout>

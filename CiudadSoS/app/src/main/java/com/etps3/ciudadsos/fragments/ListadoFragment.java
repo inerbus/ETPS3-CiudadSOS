@@ -5,6 +5,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.etps3.ciudadsos.adaptadores.EntidadesListAdapter;
 import com.etps3.ciudadsos.beans.Entidad;
 import com.etps3.ciudadsos.ciudadsos.R;
 
+
 import java.util.ArrayList;
 
 /**
@@ -23,43 +25,66 @@ import java.util.ArrayList;
  */
 public class ListadoFragment extends Fragment {
     View rootView;
+    LayoutInflater inflater= null;
+
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        rootView= inflater.inflate(R.layout.layout_f_listado_entidades, container, false);
-        Log.i("ListadoFragment", "Llega a ejecutarse");
-        ListView lst = (ListView) rootView.findViewById(R.id.lvItems);
+        this.inflater= inflater;
 
-        ArrayList<Entidad> datos= getListEntidades();
-        lst.setAdapter(new EntidadesListAdapter(rootView.getContext(), datos));
-        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
+        rootView = inflater.inflate(R.layout.layout_f_main_list, container, false);
+        boolean isLarge = getResources().getBoolean(R.bool.isLarge);
+        boolean isLand = getResources().getBoolean(R.bool.isLand);
+        Log.i(this.getClass().getName(), "largo: " + isLarge + " Land:"+ isLand);
+        if(isLand){
+            createViewLand(savedInstanceState);
+        }else{
+            createViewPort(savedInstanceState);
+        }
         return rootView;
     }
 
-    /**
-     * Obtiene la lista de entidades
-     * Este metodo se actualizara con un objeto que permita sincronizar por medio de WS el listado
-     * de entidades a una db de la cual se extraera la informacion
-     * @return
-     */
-    public ArrayList<Entidad> getListEntidades(){
+    public void replaceEntityForSucursal(int ID){
+        ListSucursalesFragment ls = new ListSucursalesFragment();
+        Log.i("Revision", "Entra a la invocacion del frame principal sustitucion");
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentListPort, ls)
+                .commitAllowingStateLoss();
+    }
 
-        ArrayList<Entidad> lst= new ArrayList<>();
+    public void createViewPort(Bundle savedInstanceState ){
+        // Crear entidades, que es comun a las 2
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentListPort,new ListEntityFragment() )
+                .commitAllowingStateLoss();
+    }
 
-        String[] entidades= rootView.getContext().getResources().getStringArray(R.array.entidadesSoS);
-        lst.add(new Entidad(entidades[0], R.drawable.hospital2));
-        lst.add(new Entidad(entidades[1], R.drawable.police));
-        lst.add(new Entidad(entidades[2], R.drawable.cross2));
-        lst.add(new Entidad(entidades[3], R.drawable.cross2));
-        lst.add(new Entidad(entidades[4], R.drawable.proteccioncivil));
-        lst.add(new Entidad(entidades[5], R.drawable.fireman));
-        lst.add(new Entidad(entidades[6], R.drawable.proteccioncivil));
 
-        return lst;
+    public void createViewLand(Bundle savedInstanceState){
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentListPort,new ListEntityFragment() )
+                .commitAllowingStateLoss();
+
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentSucursalLand, new ListSucursalesFragment())
+                .commitAllowingStateLoss();
+
+        if(getResources().getBoolean(R.bool.isLarge)){
+
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentDetalleLand, new EmergencyFragment())
+                    .commitAllowingStateLoss();
+
+        }
 
     }
 

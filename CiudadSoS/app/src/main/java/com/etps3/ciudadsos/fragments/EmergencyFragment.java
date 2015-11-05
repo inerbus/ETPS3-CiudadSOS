@@ -2,21 +2,18 @@ package com.etps3.ciudadsos.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 
 import com.etps3.ciudadsos.ciudadsos.R;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.etps3.ciudadsos.models.DataSource;
+import com.etps3.ciudadsos.models.Entidad;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.model.LatLng;
-
 /**
  * Created by martin on 09-25-15.
  */
@@ -28,20 +25,23 @@ MapView mapView;
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.layout_detalle, container, false);
-        //mapView = (MapView) rootView.findViewById(R.id.mapview);
-        //mapView.onCreate(savedInstanceState);
-       // map = mapView.getMap();
-        //map.getUiSettings().setMyLocationButtonEnabled(false);
-        //map.setMyLocationEnabled(true);
+        int position = ( this.getArguments() == null )? 1 : this.getArguments().getInt("POSITION");
+        Log.d(this.getClass().getName(), "El id de la sucursal selec es " + position);
+        Entidad entity=(new DataSource(rootView.getContext())).getDetalleByIdSucursal(position);
 
-        //MapsInitializer.initialize(this.getActivity());
+        ((TextView)rootView.findViewById(R.id.txtEntidad))
+                .setText(entity.getNombre()+ " - " + entity.getSucrusales().get(0).getNombre());
 
+        ((TextView)rootView.findViewById(R.id.txtDireccion))
+                .setText(entity.getSucrusales().get(0).getDireccion());
 
-        /*CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
-        map.animateCamera(cameraUpdate);*/
-
+        ((TextView)rootView.findViewById(R.id.txtTelefono))
+                .setText(entity.getSucrusales().get(0).getTelefono());
         Log.i("InicioFragment", "Llega a ejecutarse");
-        //Log.i("Seleccionado item Inicio");
+
+        this.getActivity().getSupportFragmentManager().beginTransaction()
+                .add(R.id.webView, new MapsActivity()).commitAllowingStateLoss();
+        Log.i("InicioFragment", "Llega a ejecutarse despues del map invoq");
         return rootView;
     }
 

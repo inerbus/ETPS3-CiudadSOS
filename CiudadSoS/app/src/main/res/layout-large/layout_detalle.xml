@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="358dp"
+        android:id="@+id/webView"
+        android:layout_weight="0.80" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_horizontal"
+            android:layout_weight="0.61">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:text="Nombre de la Entidad"
+                android:textColor="@color/darkgray"
+                android:textSize="18sp"
+                android:id="@+id/txtEntidad" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkgray"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:text="Telefono"
+                android:textSize="14sp"
+                android:id="@+id/txtTelefono" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_columnSpan="2"
+                android:textColor="@color/darkgray"
+                android:text="Direccion"
+                android:textSize="14sp"
+                android:id="@+id/txtDireccion" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_columnSpan="2"
+                android:text="Email"
+                android:textSize="14sp"
+                android:textColor="@color/darkgray"
+                android:id="@+id/txtEmail" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="166dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.24">
+
+            <ImageView
+                android:layout_width="87dp"
+                android:layout_height="63dp"
+                android:id="@+id/imageView2"
+                android:src="@android:drawable/ic_menu_call"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

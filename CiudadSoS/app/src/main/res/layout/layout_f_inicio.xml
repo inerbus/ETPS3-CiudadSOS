@@ -2,33 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blurbackground1">
+
+    android:weightSum="1"
+    >
     <ImageView
-        android:layout_width="140dp"
+        android:layout_width="188dp"
         android:layout_height="140dp"
         android:id="@+id/imagePhone"
         android:layout_marginTop="60dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:onClick="irAListado"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/microphone"
+        android:layout_weight="0.12"
+        />
 
     <TextView
-        android:layout_width="324dp"
+        android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Si tiene una emergencia presione el boton y diga el nombre de la entidad de socorro"
+        android:text="@string/msg_inicio"
         android:id="@+id/textView2"
         android:layout_below="@+id/imagePhone"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ffe6f3"
+        android:textColor="@color/darkgray"
         android:singleLine="false"
         android:typeface="serif"
         android:textStyle="italic"
         android:textIsSelectable="false"
-        android:shadowColor="#9d9d9d" />
+        android:shadowColor="#9d9d9d"
+        android:gravity="center"/>
 
 </LinearLayout>

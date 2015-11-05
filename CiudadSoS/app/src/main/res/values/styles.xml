@@ -1,8 +1,27 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="Theme.MyAppTheme" parent="@style/Theme.AppCompat.Light">
+        <!--<item name="textColorPrimary">@color/white</item>Theme.AppCompat.Light.DarkActionBar-->
+        <!--<item name="windowNoTitle">true</item>-->
+        <item name="android:actionBarStyle"   tools:ignore="NewApi">@style/MyActionBar</item>
+        <item name="colorPrimary">@color/fondoBackgroud</item>
+        <item name="colorPrimaryDark">@color/fondoBackgroud</item>
+        <item name="android:textColor">@color/textMenu</item>
+        <item name="android:textColorPrimary">@color/textMenu</item>
+        <item name="android:textColorPrimaryInverse">@color/textMenu</item>
     </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:textColor">@color/textMenu</item>
+    </style>
+
+    <style name="Theme.MyAppTheme.ActionBar.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#DCDCDC</item>
+    </style>
+    <!-- Base application theme. -->
+    <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    -->
+    <!-- Customize your theme here. -->
+    <!--</style>-->
 
 </resources>

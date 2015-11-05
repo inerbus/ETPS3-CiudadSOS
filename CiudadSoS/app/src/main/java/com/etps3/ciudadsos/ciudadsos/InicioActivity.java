@@ -2,65 +2,117 @@ package com.etps3.ciudadsos.ciudadsos;
 
 
 
+
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.ImageView;
 
-import com.etps3.ciudadsos.adaptadores.TabsListener;
+
+import com.etps3.ciudadsos.fragments.DialogoFinder;
 import com.etps3.ciudadsos.fragments.EmergencyFragment;
+import com.etps3.ciudadsos.fragments.ErrorFragment;
 import com.etps3.ciudadsos.fragments.InicioFragment;
 import com.etps3.ciudadsos.fragments.ListadoFragment;
+import com.etps3.ciudadsos.models.DataSource;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class InicioActivity extends ActionBarActivity {
-
+    public int frameSelected= 1;
+    public String selectNameClassFrame = "";
+    public Fragment selected;
+    TabsListener<InicioFragment> tblInicio = null;
+    TabsListener<EmergencyFragment> tblFinManual = null;
+    TabsListener<ListadoFragment> tblListado = null;
     ImageView phone;
+
+    public void localizarEntidadMasCercana(String text){
+        Log.i(this.getClass().getName().toString(), "" + text);
+        if(text== null || text.isEmpty() || text.equals("")){
+            lanzarFragmentoError(text);
+            return;
+        }
+        lanzarFragmenteEntidadMasCercana(text);
+    }
+    
+    public void lanzarFragmentoError(String text){
+            ErrorFragment re = new ErrorFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(android.R.id.content, re)
+                .commitAllowingStateLoss();
+    }
+    public void lanzarFragmenteEntidadMasCercana(String text){
+        // Buscar entidad mas cercana
+        EmergencyFragment re = new EmergencyFragment();
+        Bundle args = new Bundle();
+        args.putInt("POSITION", 1);
+        re.setArguments(args);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(android.R.id.content, re).commitAllowingStateLoss();
+    }
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_inicio);
+        //mCallbacks = (TaskCallbacks) this;
+        DataSource dt = new DataSource(this);
+        dt.init(this);
 
-        //ImageView phone=(ImageView)findViewById(R.id.imagePhone);
-        //phone.setImageResource(R.drawable.microphone);
-
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar =(ActionBar) this.getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        boolean paginaRotate=false;
+        this.tblListado = new TabsListener<ListadoFragment>(this, "Entidades", ListadoFragment.class, paginaRotate);
+        boolean st1 = true , st2 = false, st3 = false;
+        this.tblInicio= new TabsListener<InicioFragment>(this, "Inicio", InicioFragment.class, paginaRotate);
 
-        actionBar.addTab(actionBar.newTab().setText(R.string.menu_inicio)
-                        .setTabListener(new TabsListener<InicioFragment>(this, "Inicio" ,  InicioFragment.class))
+        actionBar.addTab(actionBar.newTab()
+                        .setText(R.string.menu_inicio)
+                        .setTabListener(tblInicio), 0, true
         );
 
         actionBar.addTab(actionBar.newTab().setText(R.string.menu_entidades)
-                .setTabListener(new TabsListener<ListadoFragment>(this, "Entidades" ,  ListadoFragment.class)));
+                .setTabListener(tblListado)
+                , 1, false);
 
         actionBar.addTab(actionBar.newTab().setText(R.string.menu_emergencia)
-                .setTabListener(new TabsListener<EmergencyFragment>(this, "Emergencia" ,  EmergencyFragment.class)));
+                .setTabListener(new TabsListener<EmergencyFragment>(this, "Emergencia", EmergencyFragment.class, paginaRotate))
+                , 2, false);
 
     }
 
+    /**
+     * Ejecutara la accion del SpeachToText
+     * @param view
+     */
     public void irAListado(View view) {
-        //Intent i = new Intent(this, ListadoCategorias.class );
-        //startActivity(i);
+        Log.d(this.getClass().getName(), "Se ejecuta el item ");
     }
 
     @Override
@@ -72,72 +124,57 @@ public class InicioActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        /*switch (item.getItemId()){
-            case  R.id.inicio:
-                return true;
-
-            case  R.id.emergencia:
-                return true;
-
-            case  R.id.entidades:
-                return true;
-
-        }*/
-
-        //noinspection Simplifia
+        //item.getItemId();
         return super.onOptionsItemSelected(item);
     }
 
-
-    protected class MyTabsListener implements ActionBar.TabListener{
-        private Fragment fragment;
-
-        public MyTabsListener(Fragment ft){
-            fragment=ft;
-        }
-
-        @Override
-        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-            //llega aqu
-            Log.i("MyTabsListener","llega a onTabSelected");
-
-            ft.add(R.id.FrgListado, fragment, null);
-        }
-
-        @Override
-        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-        }
-
-        @Override
-        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-            ft.remove(fragment);
-        }
-    }
-
     public class TabsListener <T extends Fragment> implements ActionBar.TabListener {
-
-        private Fragment fragment;
-        private final String tag;
-
-        public TabsListener(Activity activity, String tag, Class<T> cls) {
+        public Fragment fragment;
+        public final String tag;
+        boolean paginaRotate= false;
+        public TabsListener(Activity activity, String tag, Class<T> cls,boolean paginaRotate) {
             this.tag = tag;
             fragment = Fragment.instantiate(activity, cls.getName());
+            this.paginaRotate = paginaRotate;
         }
 
+
         public void onTabSelected(Tab tab, FragmentTransaction ft) {
+            Log.i("TabListener","Es un tab select");
+            if (fragment.getClass().toString().equalsIgnoreCase( EmergencyFragment.class.toString() )) {
+                FragmentManager fm = getSupportFragmentManager();
+                DialogoFinder finder = new DialogoFinder();
+                finder.show(fm, "dialog1");
+                return;
+            }
+            selected = fragment;
             ft.replace(android.R.id.content, fragment, tag);
         }
 
         public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-            ft.remove(fragment);
+                ft.remove(fragment);
         }
 
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {}
-
+        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+            if (fragment.getClass().toString().equalsIgnoreCase(EmergencyFragment.class.toString())) {
+                FragmentManager fm = getSupportFragmentManager();
+                DialogoFinder finder = new DialogoFinder();
+                Log.i("TabListener","Antes del show");
+                finder.show(fm, "dialog1");
+                Log.i("TabListener", "Despues del show");
+                return;
+            }
+        }
     }
+
+    static interface TaskCallbacks {
+        void onPreExecute();
+        void onProgressUpdate(int progress);
+        void onCancelled();
+        void onPostExecute();
+    }
+
+    private TaskCallbacks mCallbacks;
+
 
 }

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Ciudad SoS</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_listado_categorias">ListadoCategorias</string>
@@ -8,4 +7,14 @@
     <string name="menu_emergencia">Emergencia</string>
     <string name="menu_entidades">Entidades</string>
     <string name="title_activity_maps">Map</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">No se ha podido encontrar la entidad</string>
+    <bool name="isLand" >false</bool>
+    <bool name="isLarge" >false</bool>
+    <string name="speech_prompt">Say something…</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="msg_inicio">Presione el boton y diga el nombre de la entidad de socorro</string>
+    <string name="textButtonInit">click me</string>
+    <string name="text_custom_finder">Escriba el nombre de Entidad:</string>
+    <string name="title_activity_maps2">Map</string>
 </resources>
